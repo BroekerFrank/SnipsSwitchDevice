@@ -7,6 +7,7 @@ Für jedes Device wird eine eigener MQTT-Node angelegt. Diese heisst so wie das 
 Beispiel:
 
 Lampe --> on
+
 Drucker --> off
 
 Stand: 18.Mai 2019
