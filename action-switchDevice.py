@@ -15,16 +15,16 @@ def on_message(client, userdata, msg):
     data = json.loads(msg.payload.decode('utf8'))
     intentname = data['intent']['intentName']
     slots = parse_slots[data]
-    deviceName = str(slots['Device'])
+    deviceName = slots['Device']
     #deviceName = "Hase"
     session_id = data['sessionId']
     
     if intentname == "BroekerFrank:switchOnIntent":
-        text = "Das Gerät " + deviceName + "wurde eingeschaltet."
+        text = "Das Gerät " + str(deviceName) + "wurde eingeschaltet."
         mqtt_client.publish('hermes/dialogueManager/endSession', json.dumps({'text': text, "sessionId": session_id}))
 
     if intentname == "BroekerFrank:switchOffIntent":
-        text = "Das Gerät " + deviceName + "wurde ausgeschaltet."
+        text = "Das Gerät " + str(deviceName) + "wurde ausgeschaltet."
         mqtt_client.publish('hermes/dialogueManager/endSession', json.dumps({'text': text, "sessionId": session_id}))
 
 def parse_slots(data):
