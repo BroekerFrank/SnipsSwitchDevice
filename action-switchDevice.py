@@ -14,7 +14,7 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     data = json.loads(msg.payload.decode('utf8'))
     intentname = data['intent']['intentName']
-    deviceName = data['slots']['value']
+    deviceName = data['slots']['value']['value'] 
     session_id = data['sessionId']
     
     if intentname == "BroekerFrank:switchOnIntent":
