@@ -14,6 +14,8 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     data = json.loads(msg.payload.decode('utf8'))
     intentname = data['intent']['intentName']
+    session_id = data['sessionId']
+    
     if intentname == "BroekerFrank:switchOnIntent":
         slots = parse_slots(data)
         text = 'Das Gerät wurde eingeschaltet.'
