@@ -16,7 +16,9 @@ def on_message(client, userdata, msg):
     intentname = data['intent']['intentName']
     slots = parse_slots[data]
     deviceName = slots['Device']
-    #deviceName = "Hase"
+    print (deviceName)
+    deviceName = "Hase"
+    print (deviceName)
     session_id = data['sessionId']
     
     if intentname == "BroekerFrank:switchOnIntent":
